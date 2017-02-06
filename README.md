@@ -17,7 +17,7 @@ So there you have it. Run "old" kernels with known bugs or recent ones with unkn
 
 Only features where I disagree with the [official assessment](https://btrfs.wiki.kernel.org/index.php/Status).
 
-*Feature* | *Status* | *Notes* | *Example references* 
+*Feature* | *Status* | *Notes* | *References* 
 --- | --- | --- | --- 
 Subvolumes, snapshots | Mostly OK | Don't count on having lots (>1k?) of them | [1](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg45295.html), [2](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg24469.html), [3](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg38289.html), [4](http://www.spinics.net/lists/linux-btrfs/msg52881.html), [20160216](http://www.spinics.net/lists/linux-btrfs/msg52131.html) 
 Subvolumes, snapshots | Incomplete | No recursive snapshotting | [20140708](http://stackoverflow.com/questions/24625712/how-to-take-a-recursive-snapshot-of-a-btrfs-subvol), [2014](http://linux-btrfs.vger.kernel.narkive.com/A2x0iFeW/planning-for-subvolumes-of-subvolumes-and-btrfs-send-receive), [20160228](https://www.mail-archive.com/linux-btrfs@vger.kernel.org/msg51115.html)
