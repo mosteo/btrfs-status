@@ -9,7 +9,7 @@ Additionally, some missing characteristics in a feature that I consider a must h
 Finally, this is my subjective interpretation; I may be wrong or unfairly critical, refer to btrfs experts if in doubt.
 
 ## The main gotcha with btrfs
-Since the [official recommendation](https://btrfs.wiki.kernel.org/index.php/Main_Page#Stability_status) is to use the most recent kernel possible, be ready to be scolded when you report a problem while not using it. That's fine, I can understand why developers say so and too why users may not able to follow the recommendation. However, that's not the problem, but that when you obey and use the bleeding edge kernels, you better be ready to find new bugs and possibly have to compile patched kernels. 
+Since the [official recommendation](https://btrfs.wiki.kernel.org/index.php/Main_Page#Stability_status) is to use the most recent kernel possible, be ready to be friendly [scolded](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61252.html) when you report a problem while not using it. That's fine, I can understand why developers say so and too why users may not able to follow the recommendation. However, that's not the problem, but that when you obey and use the bleeding edge kernels, you better be ready to find new bugs and possibly have to compile patched kernels. 
 
 So there you have it. Run "old" kernels with known bugs or recent ones with unknown ones. And that is my main gripe with btrfs at present.
 
@@ -25,7 +25,8 @@ Send | Incomplete | No recursive sending | [20160227](https://mail-archive.com/l
 Receive | Mostly OK | Read-only snapshots are writable during receive | [20170131](https://www.spinics.net/lists/linux-btrfs/msg62524.html)
 RAID1 | Mostly OK | Failure may give you only one chance at mounting read-write for rebuild | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#raid1_volumes_only_mountable_once_RW_if_degraded)
 RAID10 | Mostly OK | RAID10 in btrfs does not mean what some people expect | [20161201](https://www.spinics.net/lists/linux-btrfs/msg61074.html), [20160603](http://www.spinics.net/lists/linux-btrfs/msg55829.html), [20140103](http://www.spinics.net/lists/linux-btrfs/msg30373.html), [20131119](http://www.spinics.net/lists/linux-btrfs/msg29282.html)
-Quotas | Unstable | May eat lots of RAM/CPU, hang computer because of OOM | [20170131](https://www.spinics.net/lists/linux-btrfs/msg62508.html) (This also happened to me in once, had to use a live 4.9 USB to disable quotas, took many hours)
+Quotas | Unstable | May eat lots of RAM/CPU, hang computer because of OOM. | [20170131](https://www.spinics.net/lists/linux-btrfs/msg62508.html) (This also happened to me in once, had to use a live 4.9 USB to disable quotas, took many hours)
+Quotas | Unstable | May grealy slow down balance operations | [20170206](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61255.html)
 Balance | Unstable | Incomplete balances may cause unescapable read-only mount | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#Incomplete_chunk_conversion) (personally bitten when reshaping a single to RAID1, IIRC)
 
 ## Final admonitory
