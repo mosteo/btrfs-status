@@ -4,7 +4,7 @@ My personal assessment on btrfs status vs the official one at https://btrfs.wiki
 ## Foreword
 After some years of using btrfs and following the official mailing list, I still see weekly horror stories posted there from unsuspecting users. I have come to have a personal idea of what is stable in the btrfs world, which I offer here to any interested party. 
 
-Finally, this is my subjective interpretation; I may be wrong or unfairly critical, refer to btrfs experts if in doubt.
+Sure, this is my subjective interpretation; I may be wrong or unfairly critical, refer to btrfs experts if in doubt.
 
 ## The main gotcha with btrfs
 Since the [official recommendation](https://btrfs.wiki.kernel.org/index.php/Main_Page#Stability_status) is to use the most recent kernel possible, be ready to be friendly [scolded](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61252.html) when you report a problem while not using it. That's fine, I can understand why developers say so and too why users may not able to follow the recommendation. However, that's not the problem, but that when you obey and use the bleeding edge kernels, you better be ready to find new bugs and possibly have to compile patched kernels. 
@@ -28,7 +28,7 @@ Quotas | Unstable | May grealy slow down balance operations | [20170206](https:/
 Balance | Unstable | Incomplete balances may cause unescapable read-only mount | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#Incomplete_chunk_conversion) (personally bitten when reshaping a single to RAID1, IIRC)
 
 ## Horror diary
-2017-02-14: After a hard freeze (probably graphics-driver related) and reboot, my root partition, a plain, defaults, single profile btrfs panics at mount time. Unbootable system, my first where I tried to use btrfs for the root partition. Home seems healthy though. I haven't tried yet to repair the filesystem. Kernel is 4.4.0 from Ubuntu 16.04.1 LTS. Lesson learned.
+* 2017-02-14: After a hard freeze (probably graphics-driver related) and reboot, my root partition, a plain, defaults, single profile btrfs panics at mount time. Unbootable system, my first where I tried to use btrfs for the root partition. Home seems healthy though. I haven't tried yet to repair the filesystem. Kernel is 4.4.0 from Ubuntu 16.04.1 LTS. Lesson learned.
 
 ## Final admonitory
 Do not forget to check the [official Gotchas page](https://btrfs.wiki.kernel.org/index.php/Gotchas)
