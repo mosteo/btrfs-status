@@ -27,5 +27,8 @@ Quotas | Unstable | May eat lots of RAM/CPU, hang computer because of OOM. | [20
 Quotas | Unstable | May grealy slow down balance operations | [20170206](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61255.html)
 Balance | Unstable | Incomplete balances may cause unescapable read-only mount | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#Incomplete_chunk_conversion) (personally bitten when reshaping a single to RAID1, IIRC)
 
+## Horror diary
+2017-02-14: After a hard freeze (probably graphics-driver related) and reboot, my root partition, a plain, defaults, single profile btrfs panics at mount time. Unbootable system, my first where I tried to use btrfs for the root partition. Home seems healthy though. I haven't tried yet to repair the filesystem. Kernel is 4.4.0 from Ubuntu 16.04.1 LTS. Lesson learned.
+
 ## Final admonitory
 Do not forget to check the [official Gotchas page](https://btrfs.wiki.kernel.org/index.php/Gotchas)
