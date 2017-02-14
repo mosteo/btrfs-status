@@ -29,6 +29,7 @@ Balance | Unstable | Incomplete balances may cause unescapable read-only mount |
 
 ## Horror diary
 * 2017-02-14: After a hard freeze (probably graphics-driver related) and reboot, my root partition, a plain, defaults, single profile btrfs panics at mount time. Unbootable system, my first where I tried to use btrfs for the root partition. Home seems healthy though. I haven't tried yet to repair the filesystem. Kernel is 4.4.0 from Ubuntu 16.04.1 LTS. Lesson learned.
+* 2017-01-09: Quotas in a backup drive (used to identify space usage in snapshots) made mount/unmount take ages, 100% IO load during hours. Solved by disabling quotas from live rolling release OpenSuse usb (couldn't with the 16.04.1 Ubuntu installation).
 
 ## Final admonitory
 Do not forget to check the [official Gotchas page](https://btrfs.wiki.kernel.org/index.php/Gotchas)
