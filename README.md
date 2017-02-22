@@ -33,4 +33,10 @@ Balance | Unstable | Incomplete balances may cause unescapable read-only mount |
 * 2017-01-09: Quotas in a backup drive (used to identify individual space usage in snapshots) made mount/unmount take ages, 100% IO load during hours. Solved by disabling quotas from live rolling release OpenSuse usb (couldn't with the 16.04.1 Ubuntu installation).
 
 ## Final admonitory
-Do not forget to check the [official Gotchas page](https://btrfs.wiki.kernel.org/index.php/Gotchas)
+If your filesystem some day refuses to mount, you might be tempted to jump into btrfsck. Instead, a cursory search will point out that there is a preferred path of solutions to attemp from less to more damage, that don't start at btrfsck. For example:
+* http://blog.tinola.com/?e=43
+* https://bbs.archlinux.org/viewtopic.php?id=182505
+
+There is a funny quote in that link: *"If you ever decide to go back to btrfs (which doesn't sound likely), you should not run btrfsck with the --repair flag unless told to do so by the developers.  This of course isn't very intuitive, but at the moment is just the way it is"*. This was three years ago, however...
+
+Also do not forget to check the [official Gotchas page](https://btrfs.wiki.kernel.org/index.php/Gotchas)
