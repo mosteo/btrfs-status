@@ -28,6 +28,7 @@ Quotas | Unstable | May grealy slow down balance operations | [20170206](https:/
 Balance | Unstable | Incomplete balances may cause unescapable read-only mount | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#Incomplete_chunk_conversion) (personally bitten when reshaping a single to RAID1, IIRC)
 
 ## Horror diary
+* 2017-02-22: After removing a device from a three-deviced fs, the `btrfs dev remove` command never finished, when I/O activity and `btrfs fi sh` suggested that many hours had gone after completion. Fortunately, it seems everything but the last wiping of signatures did complete. This was my `/home`, and for some reason it mounts normally when I do it from recovery, but won't automatically mount in a normal boot. (For the curious: this started as a single device fs; I added two more (withouth changing profiles, so the single/dup data/meta profiles became automatically single/raid1) and afterwards tried to remove the original device. Then is when `btrfs dev remove` got stuck. Kernel is 4.8.0-36 in Ubuntu 16.04.
 * 2017-02-14: After a hard freeze (probably graphics-driver related) and reboot, my root partition, a plain, defaults, single profile btrfs panics at mount time. Unbootable system, my first where I tried to use btrfs for the root partition, lasted less than a month :'(. Home seems healthy though. I haven't tried yet to repair the filesystem. Kernel is 4.4.0 from Ubuntu 16.04.1 LTS.
   * Update 2017-02-15: Mounting from a live 4.8 kernel made the issue go away...
 * 2017-01-09: Quotas in a backup drive (used to identify individual space usage in snapshots) made mount/unmount take ages, 100% IO load during hours. Solved by disabling quotas from live rolling release OpenSuse usb (couldn't with the 16.04.1 Ubuntu installation).
@@ -37,6 +38,6 @@ If your filesystem some day refuses to mount, you might be tempted to jump into 
 * http://blog.tinola.com/?e=43
 * https://bbs.archlinux.org/viewtopic.php?id=182505
 
-There is a funny quote in that link: *"If you ever decide to go back to btrfs (which doesn't sound likely), you should not run btrfsck with the --repair flag unless told to do so by the developers.  This of course isn't very intuitive, but at the moment is just the way it is"*. This was three years ago, however...
+There is a funny quote in that last link: *"... you should not run btrfsck with the --repair flag unless told to do so by the developers.  This of course isn't very intuitive, but at the moment is just the way it is"*. This was three years ago, however.
 
 Also do not forget to check the [official Gotchas page](https://btrfs.wiki.kernel.org/index.php/Gotchas)
