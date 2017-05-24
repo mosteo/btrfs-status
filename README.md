@@ -2,7 +2,7 @@
 My personal assessment on btrfs status vs the official one at https://btrfs.wiki.kernel.org/index.php/Status
 
 ## Foreword
-After some years of using btrfs and following the official mailing list, I still see weekly horror stories posted there from unsuspecting users. I have come to have a personal idea of what is stable in the btrfs world, which I offer here to any interested party. 
+After some years of using btrfs and following the official mailing list, I still see weekly horror stories posted there from unsuspecting users. I have come to have a personal idea of what stable means in the btrfs world, which I offer here to any interested party. 
 
 Sure, this is my subjective interpretation; I may be wrong or unfairly critical, refer to btrfs experts if in doubt.
 
@@ -40,5 +40,7 @@ If your filesystem some day refuses to mount, you might be tempted to jump into 
 * https://bbs.archlinux.org/viewtopic.php?id=182505
 
 There is a funny quote in that last link: *"... you should not run btrfsck with the --repair flag unless told to do so by the developers.  This of course isn't very intuitive, but at the moment is just the way it is"*. This was three years ago, however.
+
+On that note, even repairing seems to be provoking headaches as recently as [20170521](https://www.spinics.net/lists/linux-btrfs/msg65720.html) due to memory requeriments.
 
 Also do not forget to check the [official Gotchas page](https://btrfs.wiki.kernel.org/index.php/Gotchas)
