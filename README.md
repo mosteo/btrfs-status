@@ -1,5 +1,5 @@
-# btrfs-status
-My personal assessment on btrfs status vs the official one at https://btrfs.wiki.kernel.org/index.php/Status
+# btrfs stability/maturity status - btrfs-status
+My personal assessment on the btrfs stability/maturity status vs the official one at https://btrfs.wiki.kernel.org/index.php/Status
 
 ## Foreword
 After some years of using btrfs and following the official mailing list, I still see weekly horror stories posted there from unsuspecting users. I have come to have a personal idea of what stable means in the btrfs world, which I offer here to any interested party. 
