@@ -4,7 +4,7 @@ My personal assessment on the btrfs stability/maturity status vs the official on
 ## Foreword
 After some years of using btrfs and following the official mailing list, I still see weekly horror stories posted there from unsuspecting users. I have come to have a personal idea of what stable means in the btrfs world, which I offer here to any interested party. 
 
-Sure, this is my subjective interpretation; I may be wrong or unfairly critical, refer to btrfs experts if in doubt.
+Sure, this is my subjective interpretation; I may be wrong or unfairly critical, refer to btrfs experts if in doubt. Also note that, despite the apparent criticism, I do use btrfs in my systems when I consider the advantages outweight the risks.
 
 ## The main gotcha with btrfs
 Since the [official recommendation](https://btrfs.wiki.kernel.org/index.php/Main_Page#Stability_status) is to use the "most modern kernel possible", be ready to be friendly [scolded](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61252.html) when you report a problem while not using it. That's fine, I can understand why developers say so and too why users may not able to follow the recommendation. However, that's not the problem, but that when you obey and use the bleeding edge kernels, you better be ready to find new bugs and possibly have to compile patched kernels. 
