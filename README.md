@@ -6,6 +6,8 @@ After some years of using btrfs and following the official mailing list, I still
 
 Sure, this is my subjective interpretation; I may be wrong or unfairly critical, refer to btrfs experts if in doubt. Also note that, despite the apparent criticism, I do use btrfs in my systems when I consider the advantages outweight the risks.
 
+This list is likely to become outdated as btrfs evolves since I'm not 100% on top of it. Corrections welcomed.
+
 ## The main gotcha with btrfs
 Since the [official recommendation](https://btrfs.wiki.kernel.org/index.php/Main_Page#Stability_status) is to use the "most modern kernel possible", be ready to be friendly [scolded](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61252.html) when you report a problem while not using it. That's fine, I can understand why developers say so and too why users may not able to follow the recommendation. However, that's not the problem, but that when you obey and use the bleeding edge kernels, you better be ready to find new bugs and possibly have to compile patched kernels. 
 
@@ -24,7 +26,7 @@ Receive | Gotcha | Read-only snapshots are writable during receive | [20170131](
 Receive+Quotas | Unstable | Can cause corruption | [20170731](https://www.spinics.net/lists/linux-btrfs/msg67788.html)
 RAID1 | Mostly OK | Failure may give you only one chance at mounting read-write for rebuild | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#raid1_volumes_only_mountable_once_RW_if_degraded)
 RAID10 | Gotcha | RAID10 in btrfs does not mean what some people expect to | [20170601](https://www.spinics.net/lists/linux-btrfs/msg66115.html), [20161201](https://www.spinics.net/lists/linux-btrfs/msg61074.html), [20160603](http://www.spinics.net/lists/linux-btrfs/msg55829.html), [20140103](http://www.spinics.net/lists/linux-btrfs/msg30373.html), [20131119](http://www.spinics.net/lists/linux-btrfs/msg29282.html)
-Quotas | Unstable | May eat lots of RAM/CPU, hang computer because of OOM. | [20175024](https://www.spinics.net/lists/linux-btrfs/msg65796.html) ("it is now commomn knowledge", yet "mostly OK" in official assesment), [20170131](https://www.spinics.net/lists/linux-btrfs/msg62508.html) (This also happened to me in once, had to use a live 4.9 USB to disable quotas, took many hours)
+Quotas | Unstable | May eat lots of RAM/CPU, hang computer because of OOM. | [20175024](https://www.spinics.net/lists/linux-btrfs/msg65796.html) ("it is now commomn knowledge", yet "mostly OK" in official assesment), [20170131](https://www.spinics.net/lists/linux-btrfs/msg62508.html) (This happened to me once, had to use a live 4.9 USB to disable quotas, took many hours)
 Quotas | Unstable | May grealy slow down balance operations | [20170206](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61255.html)
 Balance | Unstable | Incomplete balances may cause unescapable read-only mount | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#Incomplete_chunk_conversion) (personally bitten when reshaping a single to RAID1, IIRC)
 Balance | Unstable | Interrupting a balance might leave the system unmountable | [20170607](https://www.spinics.net/lists/linux-btrfs/msg66298.html)
@@ -44,7 +46,7 @@ If your filesystem some day refuses to mount, you might be tempted to jump into 
 * http://blog.tinola.com/?e=43
 * https://bbs.archlinux.org/viewtopic.php?id=182505
 
-There is a funny quote in that last link: *"... you should not run btrfsck with the --repair flag unless told to do so by the developers.  This of course isn't very intuitive, but at the moment is just the way it is"*. This was three years ago, however.
+There is a funny quote in that last link: *"... you should not run btrfsck with the --repair flag unless told to do so by the developers.  This of course isn't very intuitive, but at the moment is just the way it is"*. This was three years ago (2014), however.
 
 On that note, even repairing seems to be provoking headaches as recently as [20170521](https://www.spinics.net/lists/linux-btrfs/msg65720.html) due to memory requeriments.
 
