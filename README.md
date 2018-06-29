@@ -31,6 +31,7 @@ Quotas | Unstable | May eat lots of RAM/CPU, hang computer because of OOM. | [20
 Quotas | Unstable | May grealy slow down balance operations | [20170206](https://mail-archive.com/linux-btrfs@vger.kernel.org/msg61255.html)
 Balance | Unstable | Incomplete balances may cause unescapable read-only mount | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#Incomplete_chunk_conversion) (personally bitten when reshaping a single to RAID1, IIRC)
 Balance | Unstable | Interrupting a balance might leave the system unmountable | [20170607](https://www.spinics.net/lists/linux-btrfs/msg66298.html)
+Repair | Unstable | Different features/bugs between normal/lowmemory, can use large amounts of RAM | [20180629](https://www.mail-archive.com/linux-btrfs@vger.kernel.org/msg78315.html)
 
 ## Horror diary
 * 2018-02-15: Not a personal experience but [these kind of threads](https://www.spinics.net/lists/linux-btrfs/msg74892.html) bring tears to my eyes.
