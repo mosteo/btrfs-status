@@ -42,6 +42,14 @@ Those should be OK now.
 RAID1 | Mostly OK | Failure may give you only one chance at mounting read-write for rebuild | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#raid1_volumes_only_mountable_once_RW_if_degraded)
 
 ## Horror diary
+* 2020-07-29: Oh sad day. After a long time not being bitten by any surprises, yesterday had an HDD start announcing bad sectors via SMART. Time for btrfs to shine! I was ready, being this disk part of a two disks filesystem. No dice. When doing the remove (I had plenty of space to spare), at the time of moving out the metadata blocks, btrfs falls on its sword. `dmesg` info points to corrupted data in the metadata (not unable to read sectors with metadata). A few funny observations:
+   * The filesystem was created on May 2017 (snapshot info says this). Too old to live?
+   * There were a couple of files with I/O errors on the bad sectors that I could delete without issue by mapping the inode reported by scrub on dmesg.
+   * Scrub says the fs is clean (oh sweet summer child).
+   * `btrfs check` says the roots contain errors (that's more like it).
+   * The drive can be `btrfs replace`d, but the new pristine drive cannot be then removed anyway, with the same errors. It seems `replace` is dutifully copying whatever error is encroached in the metadata to the replacement drive.
+   * The fs has single profile data, so I cannot mount without the failing drive in rw mode and go from there, losing the scraps that remain in the bad device (it's scraps, because `btrfs dev del` moves everything out except the last metadata block, which furthermore is raid1!).
+   * For posterity, here is a pastebin with the [errors](https://pastebin.com/QK0vZUzB).
 * 2018-09-19: An [eye-opener post](https://www.mail-archive.com/linux-btrfs@vger.kernel.org/msg80651.html) by a btrfs developer on recommended practices to keep your btrfs stable.
 * 2018-02-15: Not a personal experience but [these kind of threads](https://www.spinics.net/lists/linux-btrfs/msg74892.html) bring tears to my eyes.
 * 2017-08-24: [Red Hat has recently announced](https://www.phoronix.com/scan.php?page=news_item&px=Red-Hat-Deprecates-Btrfs-Again) that they are giving up on btrfs. I will say I'm not entirely surprised, since what has amounted to relatively small sporadic frustrations to me must be a maintenance hell on large scales. I worry though that they'll simply reinvent another wheel and push back the timeframe for a robust and flexible solution some years more. Or maybe not, we'll see.
