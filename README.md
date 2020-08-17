@@ -42,6 +42,7 @@ Those should be OK now.
 RAID1 | Mostly OK | Failure may give you only one chance at mounting read-write for rebuild | [1](https://btrfs.wiki.kernel.org/index.php/Gotchas#raid1_volumes_only_mountable_once_RW_if_degraded)
 
 ## Horror diary
+* 2020-08-17: As closing to the previous entry: after trying all I could think of and backing up the data, I dared to use `btrfsck --rescue` and guess what, it worked. Not as solidly as one would want: the first time it found and fixed things, the second time it found and fixed _more_ things, and thereafter it was silent and happy. It did what your regular `fsck` used to do in FAT times: found a bunch of dangling files and put them in `lost+found`. After that, I could remove the devices without trouble. And, since I'm daring that way, I'm still using the same filesystem without recreating it.
 * 2020-07-29: Oh sad day. After a long time not being bitten by any surprises, yesterday had an HDD start announcing bad sectors via SMART. Time for btrfs to shine! I was ready, being this disk part of a two disks filesystem. No dice. When doing the remove (I had plenty of space to spare), at the time of moving out the metadata blocks, btrfs falls on its sword. `dmesg` info points to corrupted data in the metadata (not unable to read sectors with metadata). A few funny observations:
    * The filesystem was created on May 2017 (snapshot info says this). Too old to live?
    * There were a couple of files with I/O errors on the bad sectors that I could delete without issue by mapping the inode reported by scrub on dmesg.
