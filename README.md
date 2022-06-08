@@ -1,6 +1,12 @@
 # btrfs stability/maturity status - btrfs-status
 My personal assessment on the btrfs stability/maturity status vs the official one at https://btrfs.wiki.kernel.org/index.php/Status
 
+## Foreword to the foreword
+
+This is now woefully outdated. Take it as a peek into the past (but don't
+forget to check the [official status page](https://btrfs.wiki.kernel.org/index.php/Status), as things like raid5/6
+and quotas are still rife with caveats).
+
 ## Foreword
 After some years of using btrfs and following the official mailing list, I still see weekly horror stories posted there from unsuspecting users. I have come to have a personal idea of what stable means in the btrfs world, which I offer here to any interested party. 
 
